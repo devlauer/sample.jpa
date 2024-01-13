@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@SequenceGenerator(name = "audience_seq",sequenceName = "audience_seq",allocationSize = 1)
 public class Audience {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "audience_seq")
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 

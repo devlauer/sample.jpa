@@ -3,10 +3,11 @@ package de.elnarion.sample.jpa.domain.unidirectional;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "speaker_seq",sequenceName = "speaker_seq",allocationSize = 1)
 public class Speaker {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "speaker_seq")
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 

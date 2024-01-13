@@ -4,10 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ORDER_TABLE")
+@SequenceGenerator(name = "order_seq",sequenceName = "order_seq",allocationSize = 1)
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "order_seq")
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 

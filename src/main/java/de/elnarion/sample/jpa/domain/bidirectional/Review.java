@@ -3,10 +3,11 @@ package de.elnarion.sample.jpa.domain.bidirectional;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "review_seq",sequenceName = "review_seq",allocationSize = 1)
 public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "review_seq")
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 

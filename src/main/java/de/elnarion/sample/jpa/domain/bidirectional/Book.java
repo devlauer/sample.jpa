@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@SequenceGenerator(name = "book_seq", sequenceName = "book_seq", allocationSize = 1)
 public class Book {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
